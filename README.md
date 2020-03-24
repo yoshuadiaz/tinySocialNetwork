@@ -1,4 +1,4 @@
-# Tiny Social Network
+# Tiny Social Network (in progress)
 A tiny Social Network created with the course of Practical Node by Platzi, I'm using:
 * NodeJS
 * Express
@@ -13,7 +13,7 @@ npm install
 ```
 
 ```
-npm start
+npm run start:api
 ```
 
 ## More info
