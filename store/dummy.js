@@ -15,7 +15,7 @@ async function get (table, id) {
     if (userRecord) {
       return resolve(userRecord)
     } else {
-      return reject(`${table} not found`)
+      return reject(new Error(`${table} not found`))
     }
   })
 
