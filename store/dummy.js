@@ -1,22 +1,32 @@
 const db = {
   user: [
-    { id: 1, name: 'Yoshua' }
+    { id: '1', name: 'Yoshua' },
+    { id: '2', name: 'Monni' }
   ]
 }
 
-const list = (table) => {
+async function list (table) {
   return db[table]
 }
-const get = (table, id) => {
-  const collection = list(table)
-  return collection.find(item => item.id === id) || null
+async function get (table, id) {
+  const collection = await list(table)
+  const user = new Promise((resolve, reject) => {
+    const userRecord = collection.find(item => item.id === id) || null
+    if (userRecord) {
+      return resolve(userRecord)
+    } else {
+      return reject(`${table} not found`)
+    }
+  })
+
+  return user
 }
-const upsert = (table, data) => {
-  const collection = list(table)
+async function upsert (table, data) {
+  const collection = await list(table)
   db[collection].push(data)
   return true
 }
-const remove = (table, id) => {
+async function remove (table, id) {
   return true
 }
 
