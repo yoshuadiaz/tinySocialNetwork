@@ -1,16 +1,16 @@
 const TABLE = 'auth'
 
 module.exports = (store = require('../../../store/dummy')) => {
-  function upsert(data) {
+  function upsert (data) {
     const authData = {
-      id: data.id,
+      id: data.id
     }
 
-    if(data.username) {
+    if (data.username) {
       authData.username = data.username
     }
 
-    if(data.password) {
+    if (data.password) {
       authData.password = data.password
     }
 

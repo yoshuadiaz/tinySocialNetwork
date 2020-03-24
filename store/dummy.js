@@ -22,7 +22,7 @@ async function get (table, id) {
   return user
 }
 async function upsert (table, data) {
-  if(!db[table]){
+  if (!db[table]) {
     db[table] = []
   }
 

@@ -22,7 +22,7 @@ module.exports = (store = require('../../../store/dummy')) => {
       user.id = nanoid()
     }
 
-    if(body.password || body.username){
+    if (body.password || body.username) {
       await auth.upsert({
         id: user.id,
         username: user.username,
