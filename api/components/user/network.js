@@ -30,7 +30,7 @@ function upsert (req, res) {
 
 function remove (req, res) {
   Controller.remove(req.params.id)
-    .then(user => response.success(req, res, user, 200))
+    .then(user => response.success(req, res, user, 204))
     .catch(err => response.error(req, res, err, 500))
 }
 
