@@ -9,6 +9,8 @@ router.get('/:id', get)
 
 router.post('/', upsert)
 
+router.put('/', upsert)
+
 router.delete('/:id', remove)
 
 function list (req, res) {
