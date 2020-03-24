@@ -22,8 +22,7 @@ async function get (table, id) {
   return user
 }
 async function upsert (table, data) {
-  const collection = await list(table)
-  db[collection].push(data)
+  db[table].push(data)
   return true
 }
 async function remove (table, id) {

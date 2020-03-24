@@ -23,8 +23,8 @@ function get (req, res) {
     .catch(err => response.error(req, res, err, 500))
 }
 function upsert (req, res) {
-  Controller.upsert(req.body.data)
-    .then(user => response.success(req, res, user, 200))
+  Controller.upsert(req.body)
+    .then(user => response.success(req, res, user, 201))
     .catch(err => response.error(req, res, err, 500))
 }
 

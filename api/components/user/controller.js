@@ -12,6 +12,7 @@ module.exports = (injectedStore = require('../../../store/dummy')) => {
     return store.get(TABLE, id)
   }
   async function upsert (body) {
+    console.log(body)
     const user = {
       name: body.name
     }
