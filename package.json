@@ -18,8 +18,15 @@
   },
   "devDependencies": {
     "eslint": "^6.8.0",
+    "husky": "^4.2.3",
     "nanoid": "^2.1.11",
     "nodemon": "^2.0.2",
     "standard": "^14.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run fix",
+      "pre-push": "npm test"
+    }
   }
 }
