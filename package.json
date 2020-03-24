@@ -1,0 +1,21 @@
+{
+  "name": "nodePractico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard",
+    "fix": "standard --fix",
+    "start:api": "nodemon api/index.js"
+  },
+  "keywords": [],
+  "author": "Yoshua Díaz <yoshua.sdiaz@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "standard": "^14.3.3"
+  }
+}
