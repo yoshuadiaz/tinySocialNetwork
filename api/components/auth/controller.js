@@ -3,13 +3,14 @@ const bcrypt = require('bcrypt')
 const auth = require('../../../auth')
 const TABLE = 'auth'
 
-module.exports = (store = require('../../../store/dummy')) => {
+module.exports = (store = require('../../../store/mysql')) => {
   async function login (username, password) {
     const user = await store.query(TABLE, { username })
+
     return bcrypt.compare(password, user.password)
       .then(async isLoged => {
         if (isLoged) {
-          return auth.sign(user)
+          return auth.sign({ ...user })
         } else {
           throw new Error('Invalid info')
         }
