@@ -17,7 +17,7 @@ router.delete('/:id', remove)
 function list (req, res) {
   Controller.list()
     .then(list => response.success(req, res, list, 200))
-    .catch(err => response.error(req, res, err.message, 500))
+    .catch(err => response.error(req, res, err, 500))
 }
 
 function get (req, res) {

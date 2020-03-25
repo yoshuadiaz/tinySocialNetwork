@@ -7,10 +7,10 @@ exports.success = (req, res, message, status) => {
   })
 }
 
-exports.error = (req, res, error = { message: 'Server error' }, status = 500) => {
+exports.error = (req, res, error, status = 500) => {
   res.status(status).send({
     error: true,
     status: status,
-    body: error.message
+    body: error
   })
 }
