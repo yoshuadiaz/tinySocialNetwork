@@ -37,7 +37,10 @@ const decodeHeader = (req) => {
 const check = {
   own: function (req, owner) {
     const tokenDecoded = decodeHeader(req)
-    console.log('DECODED', tokenDecoded)
+
+    if (tokenDecoded.id !== owner) {
+      throw new Error('Forbiden')
+    }
   }
 }
 
