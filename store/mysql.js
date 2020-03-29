@@ -1,5 +1,4 @@
 const mysql = require('mysql')
-const nanoid = require('nanoid')
 const { mysql: { host, user, password, database } } = require('../config')
 
 const dbcong = {
@@ -62,11 +61,9 @@ function get (table, id) {
 
 function insert (table, data) {
   return new Promise((resolve, reject) => {
-    connection.query(`INSERT INTO ${table} SET ?`, { ...data, id: nanoid() }, (err, result) => {
-      if (err) {
-        return reject(err)
-      }
-      return resolve(result)
+    connection.query(`INSERT INTO ${table} SET ?`, data, (err, result) => {
+      if (err) return reject(err)
+      resolve(result)
     })
   })
 }
@@ -74,10 +71,8 @@ function insert (table, data) {
 function update (table, data) {
   return new Promise((resolve, reject) => {
     connection.query(`UPDATE ${table} SET ? WHERE id=?`, [data, data.id], (err, result) => {
-      if (err) {
-        return reject(err)
-      }
-      return resolve(result)
+      if (err) return reject(err)
+      resolve(result)
     })
   })
 }
@@ -102,6 +97,8 @@ function query (table, query) {
 module.exports = {
   list,
   get,
+  insert,
+  update,
   upsert,
   query
 }

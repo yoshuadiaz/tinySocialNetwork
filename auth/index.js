@@ -42,6 +42,13 @@ const check = {
     if (tokenDecoded.id !== owner) {
       throw error('Forbiden', 401)
     }
+  },
+  logged: function (req) {
+    const tokenDecoded = decodeHeader(req)
+
+    if (!tokenDecoded) {
+      throw error('Forbiden', 401)
+    }
   }
 }
 

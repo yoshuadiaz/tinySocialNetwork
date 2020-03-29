@@ -30,7 +30,7 @@ module.exports = (store = require('../../../store/mysql')) => {
       authData.password = await bcrypt.hash(data.password, 10)
     }
 
-    return store.upsert(TABLE, authData)
+    return store.insert(TABLE, authData)
   }
 
   return {
