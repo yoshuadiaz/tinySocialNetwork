@@ -6,7 +6,8 @@
   "scripts": {
     "test": "standard",
     "fix": "standard --fix",
-    "start:api": "nodemon api/index.js"
+    "start:api": "nodemon api/index.js",
+    "start:db": "nodemon mysql/index.js"
   },
   "keywords": [],
   "author": "Yoshua Díaz <yoshua.sdiaz@gmail.com>",
