@@ -44,11 +44,20 @@ module.exports = (store = require('../../../store/mysql')) => {
     })
   }
 
+  async function following (user) {
+    const join = {}
+    join[TABLE] = 'user_to'
+    const query = { user_from: user }
+
+    return store.query(`${TABLE}_follow`, query, join)
+  }
+
   return {
     list,
     get,
     upsert,
     remove,
-    follow
+    follow,
+    following
   }
 }
