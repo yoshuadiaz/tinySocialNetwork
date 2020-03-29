@@ -14,7 +14,7 @@ function list (table) {
   return new Promise((resolve, reject) => {
     client.get(table, (err, data) => {
       if (err) return reject(err)
-      const response = data ? JSON.stringify(data) : null
+      const response = data ? JSON.parse(data) : null
       resolve(response)
     })
   })

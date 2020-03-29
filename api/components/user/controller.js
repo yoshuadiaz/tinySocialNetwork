@@ -2,9 +2,22 @@ const nanoid = require('nanoid')
 const auth = require('../auth')
 const TABLE = 'user'
 
-module.exports = (store = require('../../../store/mysql')) => {
+module.exports = (
+  store = require('../../../store/dummy'),
+  cache = require('../../../store/dummy')
+) => {
   async function list () {
-    return store.list(TABLE)
+    let users = await cache.list(TABLE)
+
+    if (!users) {
+      console.log('Not in cache, search in DB')
+      users = store.list(TABLE)
+      cache.upsert(TABLE, users)
+    } else {
+      console.log('Retrieve data from cache')
+    }
+
+    return users
   }
 
   async function get (id) {
