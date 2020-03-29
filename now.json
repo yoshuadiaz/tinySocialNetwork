@@ -14,6 +14,12 @@
       "use": "@now/node"
     }
   ],
+  "env": {
+    "MYSQL_HOST": "@mysql_host",
+    "MYSQL_USER": "@mysql_user",
+    "MYSQL_PASS": "@mysql_pass",
+    "MYSQL_DATABASE": "@mysql_database"
+  },
   "routes": [
     {
       "src": "/api/auth(.*)",
