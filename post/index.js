@@ -15,5 +15,5 @@ app.use('/api/post', post)
 app.use(errors)
 
 app.listen(config.post.port, () => {
-  console.log(`Servicio Posts escuchando en el puerto ${config.post.port}`)
+  console.log(`Posts service listen on port: ${config.post.port}`)
 })
